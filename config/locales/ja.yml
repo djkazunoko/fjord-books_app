@@ -221,3 +221,11 @@ ja:
       long: "%Y/%m/%d %H:%M"
       short: "%m/%d %H:%M"
     pm: 午後
+  books:
+    index:
+      title: 書籍一覧
+    new:
+      title: 登録
+    edit:
+      title: 編集
+
