@@ -228,4 +228,10 @@ ja:
       title: 登録
     edit:
       title: 編集
+  flash:
+    new: 書籍が登録されました
+    edit: 書籍が更新されました
+    destroy: 書籍が削除されました
+    confirm:
+      destroy: 本当に削除しますか?
 
