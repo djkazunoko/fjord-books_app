@@ -156,7 +156,7 @@ ja:
       submit: 保存する
       update: 更新する
     links:
-      new: 新規作成
+      new: 新規登録
       show: 詳細
       edit: 編集
       destroy: 削除
