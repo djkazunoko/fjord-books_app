@@ -223,8 +223,8 @@ en:
     edit:
       title: Editing Book
   flash:
-    new: Book was successfully created.
-    edit: Book was successfully updated.
-    destroy: Book was successfully destroyed.
+    book_new: Book was successfully created.
+    book_edit: Book was successfully updated.
+    book_destroy: Book was successfully destroyed.
     confirm:
       destroy: Are you sure?

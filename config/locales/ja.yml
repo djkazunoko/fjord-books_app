@@ -13,8 +13,6 @@ ja:
       book:
         title: タイトル
         memo: メモ
-        created_at: 作成日時
-        updated_at: 更新日時
         author: 著者
         picture: 画像
   date:
@@ -229,9 +227,9 @@ ja:
     edit:
       title: 編集
   flash:
-    new: 書籍が登録されました
-    edit: 書籍が更新されました
-    destroy: 書籍が削除されました
+    book_new: 書籍が登録されました
+    book_edit: 書籍が更新されました
+    book_destroy: 書籍が削除されました
     confirm:
       destroy: 本当に削除しますか?
 
