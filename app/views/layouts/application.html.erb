@@ -15,13 +15,17 @@
 
     <div>
       <% if user_signed_in? %>
-        ログイン中のユーザー： <strong><%= current_user.email %></strong><br>
+        ログイン中のユーザー： <strong><%= current_user.email %></strong>
         <%= link_to t('devise.registrations.edit.profile'), edit_user_registration_path%> |
         <%= link_to t('devise.sessions.sign_out'), destroy_user_session_path, method: :delete %>
       <% else %>
         <%= link_to t('devise.registrations.new.sign_up'), new_user_registration_path %> |
         <%= link_to t('devise.sessions.new.sign_in'), new_user_session_path %>
       <% end %>
+    </div>
+
+    <div>
+      <%= link_to '書籍一覧', books_path %> | <%= link_to 'ユーザー一覧', users_path %>
     </div>
 
     <%= yield %>
