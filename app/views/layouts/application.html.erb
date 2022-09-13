@@ -25,7 +25,7 @@
     </div>
 
     <div>
-      <%= link_to '書籍一覧', books_path %> | <%= link_to 'ユーザー一覧', users_path %>
+      <%= link_to Book.model_name.human, books_path %> | <%= link_to User.model_name.human, users_path %>
     </div>
 
     <%= yield %>
