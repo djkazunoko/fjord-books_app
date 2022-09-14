@@ -8,16 +8,16 @@ class ApplicationController < ActionController::Base
   protected
 
   def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:account_update, keys: [:address, :postcode, :bio])
+    devise_parameter_sanitizer.permit(:account_update, keys: %i[address postcode bio])
   end
 
   private
 
-  def after_sign_in_path_for(resource)
+  def after_sign_in_path_for(_resource)
     books_path
   end
-  
-  def after_sign_out_path_for(resource)
+
+  def after_sign_out_path_for(_resource)
     new_user_session_path
   end
 end
