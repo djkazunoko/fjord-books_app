@@ -22,3 +22,8 @@
   <%= f.label :avatar %><br />
   <%= f.file_field :avatar %>
 </div>
+
+<% if @user.avatar.attached? %>
+  <p>設定中のアイコン画像:</p>
+  <p><%= image_tag @user.avatar.variant(resize_to_fit: [50, 50]) %></p>
+<% end %>
