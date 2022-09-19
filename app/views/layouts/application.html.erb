@@ -10,6 +10,24 @@
   </head>
 
   <body>
+    <p id="notice"><%= notice %></p>
+    <p id="alert"><%= alert %></p>
+
+    <div>
+      <% if user_signed_in? %>
+        <div><%= t('layouts.application.sign_in_as', email: current_user.email) %></div>
+        <%= link_to t('devise.registrations.edit.profile'), edit_user_registration_path %> |
+        <%= link_to t('devise.sessions.sign_out'), destroy_user_session_path, method: :delete %>
+      <% else %>
+        <%= link_to t('devise.registrations.new.sign_up'), new_user_registration_path %> |
+        <%= link_to t('devise.sessions.new.sign_in'), new_user_session_path %>
+      <% end %>
+    </div>
+
+    <div>
+      <%= link_to Book.model_name.human, books_path %> | <%= link_to User.model_name.human, users_path %>
+    </div>
+
     <%= yield %>
   </body>
 </html>
