@@ -238,3 +238,4 @@ ja:
     registrations:
       edit:
         title: "アカウント編集"
+        current_avatar: "設定中のアバター画像"

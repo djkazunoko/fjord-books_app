@@ -24,6 +24,6 @@
 </div>
 
 <% if @user.avatar.attached? %>
-  <p>設定中のアイコン画像:</p>
+  <p><%= t('devise.registrations.edit.current_avatar') %>:</p>
   <p><%= image_tag @user.avatar.variant(resize_to_fit: [50, 50]) %></p>
 <% end %>
