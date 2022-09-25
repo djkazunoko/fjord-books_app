@@ -1,9 +1,9 @@
 <div>
   <%= link_to followings_user_path(user) do %>
-    フォロー <strong><%= user.followings.count %></strong>
+    <%= t('views.follow.stats.followings') %> <strong><%= user.followings.count %></strong>
   <% end %>
   &nbsp;
   <%= link_to followers_user_path(user) do %>
-    フォロワー <strong><%= user.followers.count %></strong>
+    <%= t('views.follow.stats.followers') %> <strong><%= user.followers.count %></strong>
   <% end %>
 </div>
