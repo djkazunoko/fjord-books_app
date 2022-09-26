@@ -6,5 +6,13 @@ class User < ApplicationRecord
 
   has_one_attached :avatar
 
-  validates :avatar, content_type: ['image/png', 'image/jpeg', 'image/gif']
+  validate :image_check
+
+  private
+
+  def image_check
+    return if avatar.image?
+
+    errors.add(:avatar, I18n.t('errors.messages.content_type_invalid'))
+  end
 end
