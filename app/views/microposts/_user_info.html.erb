@@ -1,0 +1,3 @@
+<p>ログイン中のユーザ名:<strong><%= current_user.name %></strong></p>
+<span><%= link_to "view my profile", current_user %></span>
+<span><%= pluralize(current_user.microposts.count, "micropost") %></span>

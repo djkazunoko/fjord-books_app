@@ -1,0 +1,6 @@
+<h1>マイクロポスト一覧</h1>
+<ul>
+  <% @microposts.each do |micropost| %>
+    <li>投稿内容:<%= micropost.content %>|投稿者:<%= micropost.user.name %></li>
+  <% end %>
+</ul>
