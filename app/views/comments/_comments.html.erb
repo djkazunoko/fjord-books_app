@@ -1,0 +1,5 @@
+<h2>コメント一覧</h2>
+<% @comments.each do |comment| %>
+  <p>コメント:<%= comment.content %></p>
+  <p>投稿時間:<%= comment.created_at %></p>
+<% end %>
