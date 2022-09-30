@@ -11,6 +11,9 @@
       <% end %>
     </p>
     <p>投稿時間:<%= comment.created_at %></p>
+    <% if current_user == comment.user %>
+      <%= link_to t('views.common.destroy'), polymorphic_path([commentable, comment]), method: :delete, data: { confirm: t('views.common.delete_confirm') } %>
+    <% end %>
   <% end %>
 <% else %>
   <p>コメントはありません</p>
