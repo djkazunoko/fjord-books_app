@@ -1,13 +1,17 @@
 <h2>コメント一覧</h2>
-<% @comments.each do |comment| %>
-  <p>コメント:<%= comment.content %></p>
-  <p>
-    投稿者:
-    <% if comment.user.name.empty? %>
-      <%= comment.user.email %>
-    <% else %>
-      <%= comment.user.name %>
-    <% end %>
-  </p>
-  <p>投稿時間:<%= comment.created_at %></p>
+<% if @comments.any? %>
+  <% @comments.each do |comment| %>
+    <p>コメント:<%= comment.content %></p>
+    <p>
+      投稿者:
+      <% if comment.user.name.empty? %>
+        <%= comment.user.email %>
+      <% else %>
+        <%= comment.user.name %>
+      <% end %>
+    </p>
+    <p>投稿時間:<%= comment.created_at %></p>
+  <% end %>
+<% else %>
+  <p>コメントはありません</p>
 <% end %>
