@@ -14,4 +14,6 @@
 <%= link_to 'Back', reports_path %>
 
 <%= render 'comments/comments', commentable: @report %>
-<%= render 'comments/form', commentable: @report %>
+
+<h2>コメント投稿</h2>
+<%= render 'comments/form', commentable: @report, comment: @comment %>

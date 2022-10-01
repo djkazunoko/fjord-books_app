@@ -1,5 +1,4 @@
-<h2>コメント投稿</h2>
-<%= form_with model: [commentable, Comment.new] do |f| %>
+<%= form_with model: [commentable, comment] do |f| %>
   <div class="field">
     <%= f.label :content %>
     <%= f.text_area :content, required: true %>

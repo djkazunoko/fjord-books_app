@@ -24,4 +24,6 @@
 <%= link_to t('views.common.back'), books_path %>
 
 <%= render 'comments/comments', commentable: @book %>
-<%= render 'comments/form', commentable: @book %>
+
+<h2>コメント投稿</h2>
+<%= render 'comments/form', commentable: @book, comment: @comment %>
