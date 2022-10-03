@@ -1,4 +1,4 @@
-<h1>コメントの編集</h1>
+<h1><%= t('views.common.title_edit', name: Comment.model_name.human) %></h1>
 
 <%= render 'comments/form', commentable: @commentable, comment: @comment %>
 

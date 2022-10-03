@@ -16,7 +16,7 @@ class CommentsController < ApplicationController
 
   def update
     if @comment.update(comment_params)
-      redirect_to @commentable, notice: "コメントが更新されました。"
+      redirect_to @commentable, notice: t('controllers.common.notice_update', name: Comment.model_name.human)
     else
       render :edit
     end
@@ -25,7 +25,7 @@ class CommentsController < ApplicationController
   def destroy
     @comment.destroy
 
-    redirect_to @commentable, notice: "コメントが削除されました。"
+    redirect_to @commentable, notice: t('controllers.common.notice_destroy', name: Comment.model_name.human)
   end
 
   private

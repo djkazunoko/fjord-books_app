@@ -25,5 +25,5 @@
 
 <%= render 'comments/comments', commentable: @book, comments: @comments %>
 
-<h2>コメント投稿</h2>
+<h2><%= t('views.common.title_new', name: Comment.model_name.human) %></h2>
 <%= render 'comments/form', commentable: @book, comment: @comment %>
