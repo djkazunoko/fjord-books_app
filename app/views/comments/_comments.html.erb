@@ -1,19 +1,21 @@
 <h2>コメント一覧</h2>
 <% if comments.any? %>
   <% comments.each do |comment| %>
-    <p>コメント:<%= comment.content %></p>
-    <p>
-      投稿者:
-      <% if comment.user.name.empty? %>
-        <%= comment.user.email %>
-      <% else %>
-        <%= comment.user.name %>
+    <% unless comment.id.nil? %>
+      <p>コメント:<%= comment.content %></p>
+      <p>
+        投稿者:
+        <% if comment.user.name.empty? %>
+          <%= comment.user.email %>
+        <% else %>
+          <%= comment.user.name %>
+        <% end %>
+      </p>
+      <p>投稿時間:<%= comment.created_at %></p>
+      <% if current_user == comment.user %>
+        <%= link_to t('views.common.edit'), edit_polymorphic_path([commentable, comment]) %> | 
+        <%= link_to t('views.common.destroy'), polymorphic_path([commentable, comment]), method: :delete, data: { confirm: t('views.common.delete_confirm') } %>
       <% end %>
-    </p>
-    <p>投稿時間:<%= comment.created_at %></p>
-    <% if current_user == comment.user %>
-      <%= link_to t('views.common.edit'), edit_polymorphic_path([commentable, comment]) %> | 
-      <%= link_to t('views.common.destroy'), polymorphic_path([commentable, comment]), method: :delete, data: { confirm: t('views.common.delete_confirm') } %>
     <% end %>
   <% end %>
 <% else %>
