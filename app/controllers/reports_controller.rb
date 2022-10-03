@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class ReportsController < ApplicationController
-  before_action :set_report, only: %i[ show ]
-  before_action :correct_user, only: %i[ edit update destroy ]
+  before_action :set_report, only: %i[show]
+  before_action :correct_user, only: %i[edit update destroy]
 
   # GET /reports or /reports.json
   def index
@@ -19,15 +21,14 @@ class ReportsController < ApplicationController
   end
 
   # GET /reports/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /reports or /reports.json
   def create
     @report = current_user.reports.build(report_params)
 
     if @report.save
-      redirect_to report_url(@report), notice: "Report was successfully created."
+      redirect_to report_url(@report), notice: t('controllers.common.notice_create', name: Report.model_name.human)
     else
       render :new, status: :unprocessable_entity
     end
@@ -36,7 +37,7 @@ class ReportsController < ApplicationController
   # PATCH/PUT /reports/1 or /reports/1.json
   def update
     if @report.update(report_params)
-      redirect_to report_url(@report), notice: "Report was successfully updated."
+      redirect_to report_url(@report), notice: t('controllers.common.notice_update', name: Report.model_name.human)
     else
       render :edit, status: :unprocessable_entity
     end
@@ -46,22 +47,21 @@ class ReportsController < ApplicationController
   def destroy
     @report.destroy
 
-    redirect_to reports_url, notice: "Report was successfully destroyed."
+    redirect_to reports_url, notice: t('controllers.common.notice_destroy', name: Report.model_name.human)
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_report
-      @report = Report.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def report_params
-      params.require(:report).permit(:title, :content)
-    end
+  def set_report
+    @report = Report.find(params[:id])
+  end
 
-    def correct_user
-      @report = current_user.reports.find_by(id: params[:id])
-      redirect_to reports_url if @report.nil?
-    end
+  def report_params
+    params.require(:report).permit(:title, :content)
+  end
+
+  def correct_user
+    @report = current_user.reports.find_by(id: params[:id])
+    redirect_to reports_url if @report.nil?
+  end
 end

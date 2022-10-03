@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 class CommentsController < ApplicationController
   before_action :set_comment, only: %i[edit update destroy]
-  
+
   def edit; end
 
   def create
@@ -30,11 +32,11 @@ class CommentsController < ApplicationController
 
   private
 
-    def set_comment
-      @comment = Comment.find(params[:id])
-    end
+  def set_comment
+    @comment = Comment.find(params[:id])
+  end
 
-    def comment_params
-      params.require(:comment).permit(:content)
-    end
+  def comment_params
+    params.require(:comment).permit(:content)
+  end
 end
