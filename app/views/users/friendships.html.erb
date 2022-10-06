@@ -3,7 +3,7 @@
   <ul>
     <% @users.each do |user| %>
       <li>
-        <%= user.name %> <%= link_to t('views.common.show'), user %>
+        <%= link_to user.name, user %>
       </li>
     <% end %>
   </ul>
