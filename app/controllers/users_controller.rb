@@ -13,13 +13,13 @@ class UsersController < ApplicationController
     @title = t('views.follow.show_follow.followings')
     @user  = User.find(params[:id])
     @users = @user.followings.order(:id)
-    render 'show_follow'
+    render 'friendships'
   end
 
   def followers
     @title = t('views.follow.show_follow.followers')
     @user  = User.find(params[:id])
     @users = @user.followers.order(:id)
-    render 'show_follow'
+    render 'friendships'
   end
 end
