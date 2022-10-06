@@ -1,15 +1,21 @@
 # frozen_string_literal: true
 
 class FriendshipsController < ApplicationController
+  before_action :set_user
+
   def create
-    user = User.find(params[:followed_id])
-    current_user.follow(user)
-    redirect_to user
+    current_user.active_friendships.create!(followed: @other_user)
+    redirect_to @other_user
   end
 
   def destroy
-    user = Friendship.find(params[:id]).followed
-    current_user.unfollow(user)
-    redirect_to user
+    current_user.active_friendships.find(params[:id]).destroy
+    redirect_to @other_user
+  end
+
+  private
+
+  def set_user
+    @other_user = User.find(params[:user_id])
   end
 end

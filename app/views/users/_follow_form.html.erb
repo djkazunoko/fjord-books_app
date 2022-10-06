@@ -1,13 +1,12 @@
 <% unless user == current_user %>
   <div>
     <% if current_user.following?(user) %>
-      <%= form_with(model: current_user.active_friendships.find_by(followed_id: user.id),
-                    html: { method: :delete }, local: true) do |f| %>
+      <% friendship = current_user.active_friendships.find_by(followed: user) %>
+      <%= form_with(model: [user, friendship], method: :delete, local: true) do |f| %>
         <%= f.submit t('views.follow.form.unfollow') %>
       <% end %>
     <% else %>
-      <%= form_with(model: current_user.active_friendships.build, local: true) do |f| %>
-        <div><%= hidden_field_tag :followed_id, user.id %></div>
+      <%= form_with(model: [user, current_user.active_friendships.build], local: true) do |f| %>
         <%= f.submit t('views.follow.form.follow') %>
       <% end %>
     <% end %>
