@@ -7,11 +7,7 @@
       </p>
       <p>
         <strong><%= User.model_name.human %>: </strong>
-        <% if comment.user.name.empty? %>
-          <%= comment.user.email %>
-        <% else %>
-          <%= comment.user.name %>
-        <% end %>
+        <%= comment.user.name_or_email %>
       </p>
       <p>
         <strong><%= Comment.human_attribute_name(:created_at) %>:</strong> <%= comment.created_at %>
