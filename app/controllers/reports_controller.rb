@@ -54,7 +54,6 @@ class ReportsController < ApplicationController
   end
 
   def correct_user
-    @report = current_user.reports.find_by(id: params[:id])
-    redirect_to reports_url if @report.nil?
+    @report = current_user.reports.find_by!(id: params[:id])
   end
 end
