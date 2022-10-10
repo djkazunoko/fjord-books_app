@@ -6,7 +6,7 @@ class UserTest < ActiveSupport::TestCase
   def setup
     @user1 = users(:one)
     @user2 = users(:two)
-  end 
+  end
 
   test '#following?' do
     assert_not @user1.following?(@user2)
@@ -33,7 +33,7 @@ class UserTest < ActiveSupport::TestCase
     assert_not @user1.following?(@user2)
   end
 
-  test "#name_or_email" do
+  test '#name_or_email' do
     assert_equal '1@example.com', @user1.name_or_email
     @user1.name = 'one'
     assert_equal 'one', @user1.name_or_email
