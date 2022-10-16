@@ -4,8 +4,6 @@ require 'application_system_test_case'
 
 class ReportsTest < ApplicationSystemTestCase
   setup do
-    @report = reports(:one)
-
     visit root_url
     fill_in 'Eメール', with: '1@example.com'
     fill_in 'パスワード', with: 'password'
@@ -21,8 +19,8 @@ class ReportsTest < ApplicationSystemTestCase
     visit reports_url
     click_on '新規作成'
 
-    fill_in 'タイトル', with: @report.title
-    fill_in '内容', with: @report.content
+    fill_in 'タイトル', with: 'report1'
+    fill_in '内容', with: 'This is report1'
     click_on '登録する'
 
     assert_text '日報が作成されました。'
@@ -49,10 +47,12 @@ class ReportsTest < ApplicationSystemTestCase
 
   test 'destroying a Report' do
     visit reports_url
+    count = Report.count
     page.accept_confirm do
       click_on '削除', match: :first
     end
 
     assert_text '日報が削除されました。'
+    assert_equal Report.count, (count - 1)
   end
 end
