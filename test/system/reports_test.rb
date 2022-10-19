@@ -47,12 +47,12 @@ class ReportsTest < ApplicationSystemTestCase
 
   test 'destroying a Report' do
     visit reports_url
-    count = Report.count
-    page.accept_confirm do
-      click_on '削除', match: :first
-    end
 
-    assert_text '日報が削除されました。'
-    assert_equal Report.count, (count - 1)
+    assert_difference("Report.count", -1) do
+      page.accept_confirm do
+        click_on '削除', match: :first
+      end
+      assert_text '日報が削除されました。'
+    end
   end
 end
