@@ -19,13 +19,13 @@ class ReportsTest < ApplicationSystemTestCase
     visit reports_url
     click_on '新規作成'
 
-    fill_in 'タイトル', with: 'report1'
-    fill_in '内容', with: 'This is report1'
+    fill_in 'タイトル', with: 'report title'
+    fill_in '内容', with: 'report content'
     click_on '登録する'
 
     assert_text '日報が作成されました。'
-    assert_text 'report1'
-    assert_text 'This is report1'
+    assert_text 'report title'
+    assert_text 'report content'
   end
 
   test 'updating a Report' do
